@@ -1,0 +1,9 @@
+public class HotelManagerFactory extends AbstractFactory{
+
+	public function	getHotelManager()
+	{
+		$hotelManager = new HotelManager();
+		if($hotelManager)
+			return $hotelManager;
+	}
+}
