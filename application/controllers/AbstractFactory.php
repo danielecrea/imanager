@@ -1,4 +1,4 @@
 abstract class AbstractFactory()
 {
-	abstract function getHotelManager($typeOfHotelManager);	
+	abstract function AbstractHotelManager getHotelManager($typeOfHotelManager);	
 }
