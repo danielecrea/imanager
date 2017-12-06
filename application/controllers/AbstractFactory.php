@@ -1,4 +1,6 @@
-abstract class AbstractFactory()
+<?php
+abstract class AbstractFactory
 {
-	abstract function AbstractHotelManager getHotelManager($typeOfHotelManager);	
+	static abstract function getHotelManager($typeOfHotelManager);
 }
+?>

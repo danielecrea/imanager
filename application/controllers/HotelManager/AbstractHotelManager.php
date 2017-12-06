@@ -1,4 +1,5 @@
-abstract class AbstractHotelManager()
+<?php
+abstract class AbstractHotelManager extends CI_Controller
 {
 	abstract function getStandardPrices();
 	abstract function getActualPrices();
@@ -6,3 +7,4 @@ abstract class AbstractHotelManager()
 	abstract function setOTAPrices();
 	abstract function setOfficialWebsitePrices();
 }
+?>
