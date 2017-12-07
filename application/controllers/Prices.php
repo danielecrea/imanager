@@ -7,13 +7,12 @@ class Prices extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('StandardPricesModel');
         $this->load->helper('url_helper');
-        //$this->hotelManager = HotelManagerFactory::getHotelManager("ITC");
+        $this->hotelManager = HotelManagerFactory::getHotelManager("ITC");
     }
     public function index()
     {
-            $data['prices'] = $this->StandardPricesModel->getPrices();
+            $data['prices'] = $this->hotelManager->getStandardPrices();
     }
 
     public function view($page = 'index')
@@ -25,7 +24,7 @@ class Prices extends CI_Controller {
         }
         $data['title'] = ucfirst($page); // Capitalize the first letter
         
-        $data['prices'] = $this->StandardPricesModel->getPrices();  
+        $data['prices'] = $this->hotelManager->getStandardPrices();  
 
         $this->load->view('templates/header', $data);
         $this->load->view('prices/'.$page, $data);

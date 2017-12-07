@@ -4,12 +4,12 @@ class ITCController extends AbstractHotelManager {
 	public function __construct()
     {
             parent::__construct();
-            $this->load->model('standardPricesModel');
+            $this->load->model('StandardPricesModel');
             $this->load->helper('url_helper');
     }
     public function getStandardPrices()
     {
-            $data['standardPrices'] = $this->standardPricesModel->getPrices();
+            return $this->StandardPricesModel->getPrices();
     }
     function getActualPrices(){}
     function getRealAvailabilities(){}
