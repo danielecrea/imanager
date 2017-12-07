@@ -1,11 +1,11 @@
-<h2><?php echo $title; ?></h2>
+<h2><?php echo $title;?></h2>
 
-<?php foreach ($price as $prices_item): ?>
+<?php foreach ($prices as $prices_item): ?>
 
         <h3><?php echo $prices_item['id']; ?></h3>
         <div class="main">
-                <?php echo $prices_item['text']; ?>
+                <?php echo $prices_item['date']." ".$prices_item['roomId']." ".$prices_item['typeOfUse']." ".$prices_item['price']." ".$prices_item['standardPrice']; ?>
         </div>
-        <p><a href="<?php echo site_url('prices/'.$prices_item['slug']); ?>">View article</a></p>
+        <br/>
 
 <?php endforeach; ?>
