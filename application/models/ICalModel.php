@@ -2,21 +2,16 @@
 require_once(__DIR__.'../IDataSrc.php');
 require_once(APPPATH.'libraries/zapcallib.php');
 
-class StandardAvailabiltyModel extends IDataSrc {
+class ICalModel extends IDataSrc {
     public function __construct()
     {
     	//Load all data_source
         $this->load->helper('zapcallib');        
     }
-    public function getPrice($slug = FALSE){
-    	//to do
-    }
-    public function getPrices($from=NULL,$to=NULL,$hotelId=NULL,$roomId=NULL,$typeOfUse=NULL,$slug=FALSE ){
-    	//todo
-    }
-	public function setPrices($from,$to,$hotelId,$roomId='',$typeOfUse=''){
-    	
-    }
+    
+    public function getPrices($from,$to,$priceType,$typeOfUse,$hotelId,$roomId){}
+    public function setPrices($from,$to,$priceType,$typeOfUse,$hotelId,$roomId){}
+
 	public function getOccupancy($from,$to,$hotelId,$roomId='',$typeOfUse=''){
            if(!$hotelId || !$from || !$to)
             return false;
@@ -95,11 +90,7 @@ class StandardAvailabiltyModel extends IDataSrc {
         return ($count/10);
     }
     
-	public function getReservation($from,$to,$hotelId,$roomId,$typeOfUse){
-    	//TODO: implement it
-    }
-	public function setReservation($from,$to,$hotelId,$roomId,$typeOfUse){
-    	//TODO: implement it
-    }
+    public function getReservation($from,$to,$hotelId,$roomId,$typeOfUse){}
+    public function setReservation($from,$to,$hotelId,$roomId,$typeOfUse){}
 }
 ?>
