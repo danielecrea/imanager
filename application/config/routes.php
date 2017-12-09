@@ -54,5 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['/(:any)'] = 'prices/view/$1';
-$route['prices'] = 'prices/forecastPrices/date1/date2/';
+$route['prices'] = 'prices/forecastPrices/';
 $route['prices/add'] = 'prices/add';

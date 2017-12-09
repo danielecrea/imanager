@@ -15,7 +15,7 @@ class Prices extends CI_Controller {
             //$data['prices'] = $this->hotelManager->getStandardPrices($from,$to,$hotelId,$priceType);
     }
 
-    public function forecastPrices($from=null,$to=null,$hotelId=null,$priceType=null,$page =NULL)
+    public function forecastPrices($from=null,$to=null,$priceType=null,$hotelId=null,$page =NULL)
     {
         $page="SuggestedPrices";
 
