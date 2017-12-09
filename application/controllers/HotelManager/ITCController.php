@@ -18,8 +18,8 @@ class ITCController extends AbstractHotelManager {
         $data['prices'] = $this->DatabaseModel->getPrices($from, $to,  $priceType, null, $hotelId,null);  
         //$hotelOccupancy = $this->ICalModel->getOccupancy($from,$to,$hotelId);
         $hotelOccupancy=null;
-        $newPrices = $this->forecastprices->getNewPrices($hotelId,$data['prices'],$priceType,$hotelOccupancy);
-        return $data['prices'];//$newPrices;
+        $data['newPrices'] = $this->forecastprices->getNewPrices($hotelId,$data['prices'],$priceType,$hotelOccupancy);
+        return $data;//$newPrices;
     }
     public function getOccupancy($from,$to,$hotelId,$roomId=null) {
         return $this->ICalModel->getOccupancy($from,$to,$hotelId);
