@@ -8,7 +8,6 @@ class DatabaseModel extends IDataSrc {
     }
     
     public function getPrices($from, $to, $priceType, $typeOfUse=null, $hotelId, $roomId=null){
-    	//$query = $this->db->get('prices');
         $filter = array();
         if ($priceType!=null)  $filter['priceTypeId'] = $priceType;
         if ($typeOfUse!=null)  $filter['typeOfUse'] = $typeOfUse;
