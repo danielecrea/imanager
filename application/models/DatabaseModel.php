@@ -28,8 +28,12 @@ class DatabaseModel extends IDataSrc {
 	public function setReservation($from,$to,$typeOfUse,$hotelId,$roomId=NULL){
     	//TODO: implement it
     }
-    public function getRoom($id){
-        $query = $this->db->get_where('rooms', array('id' => $id));
+    public function getRooms($id, $hotelId){
+        $filter = array();
+        if ($id!=null)  $filter['id'] = $id;
+        if ($hotelId!=null)  $filter['hotelId'] = $hotelId;
+        $query = $this->db->get_where('rooms', $filter);
+//        print_r($query->result_array());
         return $query->result_array();
     }
     public function setRoom(){}

@@ -1,11 +1,48 @@
 <h3>Please check if you want to apply these prices</h3>
-<?php print_r($prices);//foreach ($prices as $prices_item): ?>
+<table>
+<!--create header	-->
+<?php   
+	foreach ($prices as $roomsPrices){
+?>
+		<th colspan="4"><?php echo key($roomsPrices); ?></th>
+		<tr><td>Date</td><td>TypeOfUse</td><td>Price</td><td>SuggestedPrice</td><tr>
+		
+			<?php
+				foreach ($roomsPrices as $pricesPerRoom) {
+					foreach ($pricesPerRoom as $pricesPerUse) {
+						foreach ($pricesPerUse as $priceItem) {
+						?>
+							<tr>	
+								<td>
+								<?php
+								  echo $priceItem["old prices"][0]["date"];
+								?>
+								</td>
+								<td>
+								<?php
+								  echo key($pricesPerUse);
+								?>
+								</td>
+								<td>
+								<?php
+								  echo $priceItem["old prices"][0]["price"];
+								?>
+								</td>
+								<td>
+								<?php
+								  echo $priceItem["new prices"][0]["price"];
+								?>
+								</td>
+							</tr>
+		<?php			}
+					}
+				}
+	}
+			?>	
+</table>
 
-        <h3><?php //echo $prices_item['id']; ?></h3>
-        <div class="main">
-                <?php //echo $prices_item['date']." ".$prices_item['roomId']." ".$prices_item['typeOfUse']." ".$prices_item['price']." ".$prices_item['standardPrice']; ?>
-        </div>
-        <br/>
+    <div class="main">
+    <br/>
 
 <?php //endforeach; ?>
 <input type="submit" name="confirmPrices" value="Apply Prices"/>
