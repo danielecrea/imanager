@@ -8,6 +8,7 @@ class Prices extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url_helper');
+        $this->load->helper('form');
         $this->hotelManager = HotelManagerFactory::getHotelManager("ITC");
     }
     public function index($from,$to,$hotelId,$priceType)
@@ -33,6 +34,11 @@ class Prices extends CI_Controller {
         $this->load->view('templates/footer', $data);
     }
 
+    // When user submit data on view page, Then this function store data in array.
+    public function setNewPrices() {
+        print_r($this->input->post('roomsPrices'));
+        return;
+    }
     public function setPrices(){
         //TODO: to implement it
     }
