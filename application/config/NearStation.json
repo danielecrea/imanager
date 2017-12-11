@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "nearstation-188708",
+  "private_key_id": "5172002c051ba5855e0f908987e9eedf19a5c827",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCug7s15V9OLmG9\nl/PuRk47PG1a5TgcriXpJXIUH7DqpvUjZ7lIbxCj3txPZ3KE8fzH1DC9flFV3Z9H\ns61rOBnTsDjg+x3RVhro3o9a11nItYIl/vnBcwoXzb+trnCb1UKre0APk1HCJWbZ\njEy7v2gV9NTYubyoMh0D1EZ/+odpvxKBrNrm78z0yAoGk7/ZY/lwtEKKEggciv7s\napwpEuaEEpljILZf4bkALH8ak2RJyTHimW0e61AccOPc49FxU9Snd8/gmb0qkGzZ\n+yp33CJlUdn5EmgQ/yIYJv8BHRS12H5a2e/0frsvoizZeBNnZQWfBQ9F55apXx9A\nESuNXGhjAgMBAAECggEAATnfGgGIs8d6gh1SapIaeojLcrARHJ8BQz8qqxyGjcVZ\nx79D1yVFJUqnPP1PCMMTqzMSAYaLTHn4SvCAUpIm1JEBahhLsDvIqmo7eWatMD1M\n4eFjrViwIF1rY1xKJelUBL+rSrcfJga8govD03H7+qeCyqQ0OBM5ylwQMt5yOW/K\nEn2dSI19ju8v2ApkVinge7rt8c7CWHoKSu4BjMWuOfvVOlNv1Aa4D14jpGRlA+Xb\n7J+0oz4BZlGNQnSC6SZa4txX9CroxdUO0rXy8oMP3hVP1+JaPh5XrMkmfCP6llaW\nGyGjzoM6cc6FpRDU96R5STzqBpQ//nKRbsOObsW/IQKBgQDmRcv8bU5ceMpmoz22\nEx2S+y8nqTid1EDj9PzRlp4lGxxgMRoyi0dzycBPVeAAdC9aXdYawychuYDbB+ZP\nH+cFKWRh5QhJt3kxYfHVeZL9AUbjIkM9mdeHSqILsJmK2Fxmv+O8ax8nkJ7N2DHS\nrgoVaSb/Gql60+7MUKzF226CQwKBgQDCAyfPbQYknSihBN7hyTIeBvGAZsTCDfRj\nMFhg0JmGt2rKjmC5K9S7XppnLxRtEXDMABqPh1njXnYGDFQF1UornNMXtEERemmx\nbpmZiFD6f4oDdmILreRG59KQxziTFdJuweSlzVV7Nj6hYR92fBk0F1yN674dTJw4\nxFOzXtZvYQKBgQCvdN9JJ8BdlWwjaJ7M7SPLqrjzb21EVUZca39381vsyguE/+UG\nPjnjcAaobLaRofWy1W0eVzSp7b7RJePGxngw5qkmLm1yPeqKRicOkeP+A8sPpju1\n5FLlM2jln1pfARzm7a+JEdZbP0bBccoEzbfBOK4OEzKv9GwwIgiDef9qIQKBgQCq\nORSL1Q9nvpAwPtLDbcDQQa1QyFpoHNBI2tkgEMYzQeir0iIhNcjPoOB+Gfuk+oFq\nK8kiF1KRwIZzJgvulkYeX9mCWcAhcrMbX3vbDpRmRNK12P+LWcYJREsmhfUocCQS\n04ImyzLuCRkIhOuTDK0cXEbzqlxC3r3OvMrnfRVN4QKBgQCYSomFGF+WZcqBgn5D\n9Do3Aye01wvHqlHDRkS4EYxtsbrBFhFKi9bP83uYrjde0CCNus0mSwUEa6NQDnP0\nMjBrSTsjwEtyclNfXsDROsQjRPEYjecd56MA4wL8B9ADZgK6kudjQyJF0ztmH/Bi\nbPSIRtL1GUviI8tMcQAjGkmqog==\n-----END PRIVATE KEY-----\n",
+  "client_email": "nearstation@nearstation-188708.iam.gserviceaccount.com",
+  "client_id": "101900137223571259347",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nearstation%40nearstation-188708.iam.gserviceaccount.com"
+}
