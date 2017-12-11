@@ -31,7 +31,7 @@ class ForecastPrices {
         $pmin = 40;
         $bean = ( 1 / ($sigma*sqrt(2*pi())))*exp((-pow($distance-$mean,2))/(2*pow($sigma,2)));
         $newPrice = $bean*10000;
-        //$newPrice = $basePrice+$hotelOccupacy*$pmax/4-(($distance-F2)%-I2)*$O$1/2;
+        //$newPrice= $basePrice+$hotelOccupacy*$pmax/4-(($distance-F2)%-I2)*$pmax/2;
         echo "<br/>Price:".$price;
         echo "<br/>NewPrice:".$newPrice;
         return $newPrice;
