@@ -2,6 +2,9 @@
 <table>
 <!--create header	-->
 <?php   
+    //	print_r($prices);
+	// Open form and set URL for submit form
+	echo form_open('prices/setNewPrices');
 	foreach ($prices as $roomsPrices){
 ?>
 		<th colspan="4"><?php echo key($roomsPrices); ?></th>
@@ -13,25 +16,34 @@
 						foreach ($pricesPerUse as $priceItem) {
 						?>
 							<tr>	
-								<td>
+								<td align="center">
 								<?php
 								  echo $priceItem["old prices"][0]["date"];
 								?>
 								</td>
-								<td>
+								<td align="center">
 								<?php
 								  echo key($pricesPerUse);
 								?>
 								</td>
-								<td>
+								<td align="center">
 								<?php
 								  echo $priceItem["old prices"][0]["price"];
 								?>
 								</td>
-								<td>
+								<td align="center">
 								<?php
-								  echo $priceItem["new prices"][0]["price"];
+									$data = array(
+								        'name'          => 'roomsPrices['.$priceItem['new prices'][0]['roomId'].']['.$priceItem['new prices'][0]['price'].']',
+								        'id'            => 'priceItem',
+								        'value'         => $priceItem["new prices"][0]["price"],
+								        'maxlength'     => '4',
+								        'size'          => '4',
+								        'style'         => 'width:50%'
+									);
+									echo form_input($data)
 								?>
+								
 								</td>
 							</tr>
 		<?php			}
@@ -44,5 +56,5 @@
     <div class="main">
     <br/>
 
-<?php //endforeach; ?>
-<input type="submit" name="confirmPrices" value="Apply Prices"/>
+<?php echo form_submit('mysubmit', 'Apply Prices!');//endforeach; ?>
+<?php echo form_close();?>
