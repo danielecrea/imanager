@@ -36,6 +36,7 @@ class Prices extends CI_Controller {
 
     // When user submit data on view page, Then this function store data in array.
     public function setNewPrices() {
+        //TODO: for ITC,AH and TES, if you are going to update priceType=1 it means we have to update prices of the official website, if priceType=2 it means we have to update prices on octorate 
         print_r($this->input->post('roomsPrices'));
         return;
     }
