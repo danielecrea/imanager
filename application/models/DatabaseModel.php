@@ -39,10 +39,20 @@ class DatabaseModel extends IDataSrc {
     }
     public function getRooms($id, $hotelId){
         $filter = array();
-        if ($id!=null)  $filter['id'] = $id;
+        if (!($id == ''))  $filter['id'] = $id;
         if ($hotelId!=null)  $filter['hotelId'] = $hotelId;
         $query = $this->db->get_where('rooms', $filter);
 //        print_r($query->result_array());
+        return $query->result_array();
+    }
+
+    public function getOctoRoomId($id,$typeOfUse){
+        $filter = array();
+        //echo "$id $typeOfUse";
+        if (!($id == ''))  $filter['roomId'] = $id;
+        if ($typeOfUse!=null)  $filter['typeOfUse'] = $typeOfUse;
+        $query = $this->db->get_where('room_mapping', $filter);
+        //print_r($query->result_array());
         return $query->result_array();
     }
     public function setRoom(){}

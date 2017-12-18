@@ -1,8 +1,8 @@
 <?php
-require_once(__DIR__.'/../ChannelAbstractFactory.php');
+require_once(__DIR__.'/../AbstractFactory.php');
 require_once(__DIR__.'../OctoController.php');
-//require_once(__DIR__.'../TESController.php');
-class ChannelManagerFactory extends ChannelAbstractFactory{
+class ChannelManagerFactory extends AbstractFactory{
+	public static function	getHotelManager($typeOfHotelManager){}
 
 	public static function	getChannelManager($typeOfChannelManager)
 	{
@@ -10,8 +10,9 @@ class ChannelManagerFactory extends ChannelAbstractFactory{
 		{
 			case 'OCTO':
 				return new OctoController();			
-				break;
+				break;				
 		}		
 	}
+	
 }
 ?>

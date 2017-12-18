@@ -1,25 +1,23 @@
 <?php
 require_once(__DIR__.'/HotelManager/HotelManagerFactory.php');
 require_once(__DIR__.'/HotelManager/AbstractHotelManager.php');
-require_once(__DIR__.'/ChannelManager/ChannelManagerFactory.php');
-require_once(__DIR__.'/ChannelManager/AbstractChannelManager.php');
 
 class Prices extends CI_Controller {
 	protected $hotelManager;
+    protected $channelManager;
 	public function __construct()
     {
         parent::__construct();
         $this->load->helper('url_helper');
         $this->load->helper('form');
         $this->hotelManager = HotelManagerFactory::getHotelManager("ITC");
-        $this->channelManager = ChannelManagerFactory::getChannelManager("OCTO");
     }
     public function index($from,$to,$hotelId,$priceType)
     {
             //$data['prices'] = $this->hotelManager->getStandardPrices($from,$to,$hotelId,$priceType);
     }
 
-    public function forecastPrices($from=null,$to=null,$priceType=null,$hotelId=null,$page =NULL)
+    public function forecastPrices($from=null,$to=null,$priceType=null,$hotelId=null,$page =NULL,$typeofUse=NULL)
     {
         $page="SuggestedPrices";
 
@@ -28,12 +26,12 @@ class Prices extends CI_Controller {
                 // Whoops, we don't have a page for that!
                 show_404();
         }
-
+        //echo "<br>in here:$priceType and $typeofUse<br>";//exit;
         $data['title'] = ucfirst($page); // Capitalize the first letter
-        if($priceType == 'OCTO')
-            $data['prices'] = $this->ChannelManager->forecastPrices($from,$to,$priceType,$hotelId);     
-        else
-            $data['prices'] = $this->hotelManager->forecastPrices($from,$to,$priceType,$hotelId); 
+        //if($priceType == 'OCTO')
+          // $data['prices'] = $this->channelManager->forecastPrices($from,$to,$priceType,$hotelId);     
+        //else
+            $data['prices'] = $this->hotelManager->forecastPrices($from,$to,$priceType,$hotelId,$typeofUse); 
         
         $this->load->view('templates/header', $data);
         $this->load->view('prices/'.$page, $data);
