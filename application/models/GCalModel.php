@@ -13,10 +13,11 @@ class GCalModel extends IDataSrc {
     public function setPrices($from,$to,$priceType,$typeOfUse,$hotelId,$roomId){}
 
 	public function getOccupancy($from,$to,$hotelId,$roomId='',$typeOfUse=''){
-
-        if(!$hotelId || !$from || !$to)
-            return false;
+        //echo "<br>$from $to";
+        //if(!$hotelId || !$from || !$to)
+          //  return false;
         $client = $service = $calendarId = $results = $start = $timezone = $client_file = '';
+        $dates = $timezone = $occupancy = array();
         $counter = 0;
         $client_file = APPPATH.'/config/NearStation.json';
         $client = new Google_Client();
@@ -28,25 +29,34 @@ class GCalModel extends IDataSrc {
         $calendarId = 'inthecenteryoutoo@gmail.com' ;
 
         $optParams = array(
-          'maxResults' => 10,
+          'maxResults' => 1000,
           'orderBy' => 'startTime',
           'singleEvents' => TRUE,
           'timeMin' => (new DateTime($from))->format(DateTime::RFC3339),
-          'timeMax' => (new DateTime($to))->add(new DateInterval('P1W'))->format(DateTime::RFC3339),
+          'timeMax' => (new DateTime($to))->add(new DateInterval('P1D'))->format(DateTime::RFC3339),
         );
+        //echo "<br>optParams<pre>";print_r($optParams);echo "</pre>";
         $results = $service->events->listEvents($calendarId, $optParams);
         if (count($results->getItems()) > 0) {
-            $counter=0;
             foreach ($results->getItems() as $event) {
-                $start = $event->start->dateTime;
+                $start = $event->start->dateTime;                
                 if (empty($start)) {
                   $start = $event->start->date;
                 }
-            $timezone = explode('T',$start);
-            if($timezone[1]) $counter++;
-            }
+                //echo "<br>start=$start";
+                $timezone = explode('T',$start);
+                if($timezone[1]) {
+                    $dates[$timezone[0]][] = $timezone[1];
+                    }
+                }
         }
-        return ($counter/10);
+        //echo "<br>timezone<pre>";print_r($dates);echo "</pre>";
+        foreach($dates as $date=>$array){
+            $count = count($array);
+            $occupancy[] = $count/5;
+        }
+        //echo "<br>occupancy<pre>";print_r($occupancy);echo "</pre>";
+        return ($occupancy);
     }
     
     public function getReservation($from,$to,$hotelId,$roomId,$typeOfUse){}

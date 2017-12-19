@@ -48,11 +48,11 @@ class DatabaseModel extends IDataSrc {
 
     public function getOctoRoomId($id,$typeOfUse){
         $filter = array();
-        //echo "$id $typeOfUse";
+        echo "<br> id=$id typeOfUse=$typeOfUse";
         if (!($id == ''))  $filter['roomId'] = $id;
         if ($typeOfUse!=null)  $filter['typeOfUse'] = $typeOfUse;
         $query = $this->db->get_where('room_mapping', $filter);
-        //print_r($query->result_array());
+        //echo'<br>';print_r($query->result_array());echo'</pre>';
         return $query->result_array();
     }
     public function setRoom(){}

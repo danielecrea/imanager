@@ -8,8 +8,8 @@ class OctoModel extends CI_Model {
         //$this->load->helper('zapcallib');        
     }
     
-    public function getPrices($from,$to,$priceType,$typeOfUse,$hotelId,$roomId){
-        //echo "<br>inside octorotemodel $from $to $priceType $typeOfUse $hotelId $roomId";
+    public function getPrices($from,$to,$priceType,$typeOfUse,$hotelId,$roomId,$typeOfUse){
+        //echo "<br>inside octorotemodel $from $to $priceType typeOfUse=$typeOfUse $hotelId $roomId";
         $url = $content = $ch = $xml = $json = $array = $data = '';
         $url = "https://www.octorate.com/api/live/callApi.php?method=GetAvailability";
         $content = 'xml=<?xml version="1.0" encoding="UTF-8"?>
@@ -36,6 +36,7 @@ class OctoModel extends CI_Model {
             $json = json_encode($xml);
             $array = json_decode($json, true);
             $infoData = array();
+//            echo "<br>Array<pre>";print_r($array);echo "</pre>";
             if(count($array['RoomsAvailability'])){
                 foreach ($array['RoomsAvailability'] as $key => $value) {
                     for($i=0;$i<count($value);$i++){
@@ -43,7 +44,7 @@ class OctoModel extends CI_Model {
                         if($value[$i]['@attributes']['RoomId'] && $value[$i]['@attributes']['RoomId'] == $roomId)
                             for($j=0;$j<count($value[$i]['DayAvailability']);$j++ )   {
                                 //echo "<br>from=$from to=$to roomId from DB=".$value[$i]['@attributes']['RoomId'].' and ours='.$roomId.' and price-'.$value[$i]['DayAvailability'][$j]['Price'];
-                                $infoData[] = $value[$i]['DayAvailability'][$j]['Price'];                            
+                                                                                                                                            $infoData[] = array('id'=>$i,'roomId'=>$value[$i]['@attributes']['RoomId'],'prices'=>$value[$i]['DayAvailability'][$j]['Price']);                            
                             }
                         }
                 }
@@ -64,5 +65,7 @@ class OctoModel extends CI_Model {
     public function setReservation($from,$to,$hotelId,$roomId,$typeOfUse){
         echo "<br>";
     }
+
+	
 }
 ?>
