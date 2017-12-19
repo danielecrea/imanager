@@ -5,7 +5,12 @@ class ITCController extends AbstractHotelManager {
     {
         parent::__construct();
         $this->load->model('DatabaseModel');
+<<<<<<< HEAD
         $this->load->model('GCalModel');
+=======
+        $this->load->model('ICalModel');
+        $this->load->model('OctoModel');
+>>>>>>> parent of d5c35f0... all the changes for occupancy
         $this->load->helper('url_helper');
         $this->load->library('forecastprices');
         $this->load->model('OctoModel');
@@ -49,6 +54,7 @@ class ITCController extends AbstractHotelManager {
                 //GET ROOM's STANDARD PRICES PER TYPE OF USE
                 $standarPrices = $this->getStandardPrices($from,$to,$priceType,$typeOfUse,$hotelId,$roomItem['id']);
                 
+<<<<<<< HEAD
                 //GET REAL ACTUAL PRICES
                 $activePricesPerUse = $this->getActivePrices($from,$to,$priceType,$typeOfUse,$hotelId,$roomItem['id']);
                 exit(0);
@@ -61,6 +67,28 @@ class ITCController extends AbstractHotelManager {
             }
             array_push($hotelPrices, array($roomItem['id'] => $roomPrices));
         }
+=======
+                $hotelOccupancy=null;
+                if($priceType == 2){                        
+                        $octoRoomId = $this->DatabaseModel->getOctoRoomId($roomItem['id'],$roomItem['Capacity']);                    
+                        $pricesPerUse = $this->OctoModel->getPrices($from, $to,  $priceType, $i, $hotelId,$octoRoomId[0]['octorateId']);
+                        //echo "<pre>";print_r($pricesPerUse);echo "</pre>";
+                    }
+                else
+                    $pricesPerUse = $this->DatabaseModel->getPrices($from, $to,  $priceType, $i, $hotelId,$roomItem['id']);
+                if (!empty($pricesPerUse)){
+                    //$newPricesPerUse = $this->forecastprices->getNewPrices($hotelId,$pricesPerUse,$priceType,$hotelOccupancy);
+                    //TODO: if pricetype=1 old prices should be the actual price on the official website, if priceType=2 we should get prices from octorate 
+                    //array_push($roomPrices, array($i=> array("old prices" => $pricesPerUse,"new prices" => $newPricesPerUse)));
+                }
+            }
+            //array_push($hotelPrices, array($roomItem['Name'] => $roomPrices));
+        }
+        //$finalArray['oldprices']=$octorate/officialprices;
+        //$finalArray['newprices']=$suggestedprices;
+        //$finalArray['roomId']['typeofUse']['']
+exit;
+>>>>>>> parent of d5c35f0... all the changes for occupancy
         return $hotelPrices;//$newPrices;
     }
 
