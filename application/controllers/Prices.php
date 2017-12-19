@@ -12,7 +12,6 @@ class Prices extends CI_Controller {
         $this->load->helper('url_helper');
         $this->load->helper('form');
         $this->hotelManager = HotelManagerFactory::getHotelManager("ITC");
-        $this->channelManager = ChannelManagerFactory::getChannelManager("OCTO");
     }
     public function index($from,$to,$hotelId,$priceType)
     {
@@ -28,12 +27,10 @@ class Prices extends CI_Controller {
                 // Whoops, we don't have a page for that!
                 show_404();
         }
-
+        //TODO: replace from and to
+        
         $data['title'] = ucfirst($page); // Capitalize the first letter
-        if($priceType == 'OCTO')
-            $data['prices'] = $this->ChannelManager->forecastPrices($from,$to,$priceType,$hotelId);     
-        else
-            $data['prices'] = $this->hotelManager->forecastPrices($from,$to,$priceType,$hotelId); 
+        $data['prices'] = $this->hotelManager->forecastPrices($from,$to,$hotelId,$priceType); 
         
         $this->load->view('templates/header', $data);
         $this->load->view('prices/'.$page, $data);

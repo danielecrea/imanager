@@ -2,7 +2,7 @@
 require_once(__DIR__.'/../ChannelAbstractFactory.php');
 require_once(__DIR__.'../OctoController.php');
 //require_once(__DIR__.'../TESController.php');
-class ChannelManagerFactory extends ChannelAbstractFactory{
+class ChannelManagerFactory {
 
 	public static function	getChannelManager($typeOfChannelManager)
 	{

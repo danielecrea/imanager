@@ -16,5 +16,6 @@ class OctoController extends AbstractChannelManager {
     }
     
     public function setPrices($from,$to,$prices,$priceType,$hotelId,$roomId=null){}
+    public function getOccupancy($from,$to,$hotelId, $roomId){}
 }
 ?>

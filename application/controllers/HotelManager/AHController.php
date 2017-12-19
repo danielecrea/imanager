@@ -9,19 +9,11 @@ class AHController extends AbstractHotelManager {
         $this->load->helper('url_helper');
         $this->load->library('ForecastPrices');
     }
-    public function getPrices($from,$to,$hotelId,$priceType)
-    {
-        return $this->DatabaseModel->getPrices($from, $to, $hotelId, $priceType);
-    }
-    public function forecastPrices($from,$to,$priceType,$hotelId,$roomId=null){
-        $data['prices'] = $this->DatabaseModel->getPrices($from, $to, $hotelId, $priceType);  
-        $data['occupancy'] = $this->ICalModel->getOccupancy($from,$to,$hotelId);
-        $newPrices = $this->ForecastPrices->getNewPrices($hotelId,$prices,$pricesType,$hotelOccupancy);
-        return $newPrices;
-    }
-    public function getOccupancy($from,$to,$hotelId,$roomId=null) {
-        return $this->ICalModel->getOccupancy($from,$to,$hotelId);
-    }
-    public function setPrices($from,$to,$prices,$priceType,$hotelId,$roomId=null){}
+    public function getStandardPrices($from,$to,$priceType,$typeOfUse,$hotelId,$roomId=null){}
+    public function getActivePrices($from,$to,$priceType,$typeOfUse,$hotelId,$roomId=null){}
+    public function setPrices($from,$to,$prices,$priceType,$typeOfUse=null,$hotelId, $roomId=null){}
+    public function forecastPrices($from, $to, $priceType, $hotelId, $roomId=null){}
+    public function getOccupancy($from, $to,$hotelId, $roomId=null){}
+    public function getRooms($hotelId){}
 }
 ?>
