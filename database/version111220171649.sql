@@ -145,3 +145,17 @@ ALTER TABLE `rooms`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+/*this will create the mapping */
+CREATE TABLE `room_mapping` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `roomId` int(10) NOT NULL,
+  `typeOfUse` int(10) NOT NULL,
+  `octorateId` int(20) NOT NULL,
+  `officalWebsiteId` int(20) NOT NULL,
+    primary key(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/* Data values */
+insert into room_mapping(roomId,typeOfUse,octorateId,officalWebsiteId) 
+  values(1,1,148725,1),(1,2,148726,1),(2,1,148749,2),(2,2,148723,2),(2,3,148724,2),(3,1,148747,3),(3,2,148728,3),(3,3,148729,3),(3,4,148727,3),(4,1,148748,4),(4,2,148730,4),(4,3,148731,4),(4,4,148732,4),(5,1,148746,5);
